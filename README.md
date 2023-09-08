@@ -29,7 +29,7 @@ Facad1ng is an open-source URL masking tool designed to help you Hide Phishing U
 
 ### ⭔ Key Features:
 
-- **URL Masking**: Facad1ng allows users to mask URLs with a custom domain and optional phishing keywords, making it difficult for malicious actors to identify the actual link.
+- **URL Masking**: Facad1ng allows users to mask URLs with a custom domain and optional phishing keywords, making it difficult to identify the actual link.
 
 - **Multiple URL Shorteners**: The tool supports multiple URL shorteners, providing flexibility in choosing the one that best suits your needs. Currently, it supports popular services like TinyURL, osdb, dagd, and clckru.
 
