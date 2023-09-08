@@ -23,6 +23,20 @@
 
 Facad1ng is an open-source URL masking tool designed to help you Hide Phishing URLs and make them look legit using social engineering techniques.
 
+### Example:
+```
+Your phishing link: https://example.com/whatever
+
+Give any custom URL: gmail.com
+
+Phishing keyword: anything-u-want
+
+Output: https://gamil.com-anything-u-want@tinyurl.com/yourlink
+
+# Get 4 masked URLs like this from different URL-shortener 
+
+```
+
 <h4 align="center"> This tool is a Proof of Concept and is for Educational Purposes Only. </h4> 
 
 ---
