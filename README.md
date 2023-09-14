@@ -93,16 +93,40 @@ python3 facad1ng.py
 pip install Facad1ng
 ```
 
-#### How To Run Using pip:
+#### How To Run On CLI:
 ```
 Facad1ng <your-phishing-link> <any-custom-domain> <any-phishing-keyword>
 ```
 ```
 Example: Facad1ng https://ngrok.com gmail.com accout-login
 ```
+### Python code:
+```py
+import subprocess
+
+# Define the command to run your Facad1ng script with arguments
+command = ["python3", "-m", "Facad1ng.main", "https://ngrok.com", "facebook.com", "login"]
+
+# Run the command
+process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+# Wait for the process to complete and get the output
+stdout, stderr = process.communicate()
+
+# Print the output and error (if any)
+print("Output:")
+print(stdout.decode())
+print("Error:")
+print(stderr.decode())
+
+# Check the return code to see if the process was successful
+if process.returncode == 0:
+    print("Facad1ng completed successfully.")
+else:
+    print("Facad1ng encountered an error.")
+```
 
 ---
-#### 🏃‍♀️ Run it online here: link coming soon..
 
 #### 💬 If having issue [Chat here](https://discord.gg/ZChEmMwE8d)
 [![Discord Server](https://discord.com/api/guilds/726495265330298973/embed.png)](https://discord.gg/ZChEmMwE8d)
