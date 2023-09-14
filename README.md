@@ -71,7 +71,7 @@ Requirements:
 <img src="https://img.shields.io/badge/Git-05122A?style=for-the-badge&logo=git">
 </h4>
 
-### ⭔ Installation
+### ⭔ Git Installation
 ---
 
 ```
@@ -85,6 +85,20 @@ pip3 install -r requirements.txt
 ```
 ```
 python3 facad1ng.py
+```
+
+### ⭔ PYPI Installation : https://pypi.org/project/Facad1ng/
+---
+```
+pip install Facad1ng
+```
+
+#### How To Run Using pip:
+```
+Facad1ng <your-phishing-link> <any-custom-domain> <any-phishing-keyword>
+```
+```
+Example: Facad1ng https://ngrok.com gmail.com accout-login
 ```
 
 ---
