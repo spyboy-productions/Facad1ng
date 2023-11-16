@@ -2,6 +2,8 @@
 
 import pyshorteners
 from urllib.parse import urlparse
+import re
+import base64
 
 twitter_url = 'https://spyboy.in/twitter'
 discord = 'https://spyboy.in/Discord'
@@ -57,61 +59,86 @@ shorteners = [
 
 # Input validation functions
 def validate_web_url(url):
-    if not url.startswith("https://") or url.endswith("/"):
-        raise ValueError("Invalid URL format. It should start with 'https://' and not end with '/'.")
+    url_pattern = re.compile(
+    r'^(https://)'  # starts with 'https://'
+    r'([a-zA-Z0-9-]+\.)*'  # optional subdomains
+    r'([a-zA-Z]{2,})'  # domain
+    r'(:\d{1,5})?'  # optional port
+    r'(/.*)?$')
+
+    if not url_pattern.match(url):
+        raise ValueError("Invalid URL format. Please provide a valid web URL.")
 
 def validate_custom_domain(domain):
-    if "://" in domain or "/" in domain:
-        raise ValueError("Invalid custom domain. It should be just the domain name without 'http://' or '/'.")
+    domain_pattern = re.compile(
+        r'^([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
+    )
+
+    if not domain_pattern.match(domain):
+        raise ValueError("Invalid custom domain. Please provide a valid domain name.")
 
 def format_phish_keywords(keywords):
+    max_length = 15
+    if not isinstance(keywords, str):
+        raise TypeError("Input must be a string.")
+
+    if len(keywords) > max_length:
+        raise ValueError("Input string exceeds the maximum allowed length.")
+
     return "-".join(keywords.split())
 
 # Input from the user with validation
-while True:
-    web_url = input(f"{G}Enter the original link {W}(ex: https://www.ngrok.com): {W}")
-    try:
-        validate_web_url(web_url)
-        break
-    except ValueError as e:
-        print(e)
+try:
+    while True:
+        web_url = input(f"{G}Enter the original link {W}(ex: https://www.ngrok.com): {W}")
+        try:
+            validate_web_url(web_url)
+            break
+        except ValueError as e:
+            print(e)
 
-while True:
-    custom_domain = input(f"\n{Y}Enter your custom domain {W}(ex: gmail.com): {W}")
-    try:
-        validate_custom_domain(custom_domain)
-        break
-    except ValueError as e:
-        print(e)
+    while True:
+        custom_domain = input(f"\n{Y}Enter your custom domain {W}(ex: gmail.com): {W}")
+        try:
+            validate_custom_domain(custom_domain)
+            break
+        except ValueError as e:
+            print(e)
 
-while True:
-    phish = input(f"\n{C}Enter phishing keywords {W}(ex: free-stuff, login): {W}")
-    phish = format_phish_keywords(phish)
-    if " " not in phish:
-        break
-    else:
-        print("Phishing keywords should not contain spaces. Use '-' to separate them.")
+    while True:
+        phish = input(f"\n{C}Enter phishing keywords {W}(ex: free-stuff, login): {W}")
+        phish = format_phish_keywords(phish)
+        if " " not in phish:
+            break
+        else:
+            print("Phishing keywords should not contain spaces. Use '-' to separate them.")
 
-# Prepare the data for the request
-data = {
-    'url': web_url,
-    'shorturl': '',
-}
+    # Prepare the data for the request
+    data = {
+        'url': web_url,
+        'shorturl': '',
+    }
 
-# Shorten the original URL with multiple URL shorteners
-short_urls = [shortener.short(web_url) for shortener in shorteners]
+    # Shorten the original URL with multiple URL shorteners
+    short_urls = [shortener.short(web_url) for shortener in shorteners]
 
-# Mask the URLs with custom domain and phishing keywords
-def mask_url(domain, keyword, url):
-    # Use urlparse to properly split the URL
-    parsed_url = urlparse(url)
+    # Mask the URLs with custom domain and phishing keywords
+    def mask_url(domain, keyword, url):
 
-    # Reconstruct the URL with the custom domain and phishing keyword
-    return f"{parsed_url.scheme}://{domain}-{keyword}@{parsed_url.netloc}{parsed_url.path}"
+        encoded_url = base64.b64encode(url.encode()).decode()
+        encoded_keywords = base64.b64encode(keyword.encode()).decode()
+        # Use urlparse to properly split the URL
+        parsed_url = urlparse(encoded_url)
 
-# Print the results
-print(f"\n{Y}Original URL:{W}", web_url, "\n")
-print(f"{G}[~] {R}Masked URL (using multiple shorteners):{W}")
-for i, short_url in enumerate(short_urls):
-    masked_url = mask_url(custom_domain, phish, short_url)
-    print(f"{G}╰➤ {C}Shortener {W} {i + 1}: {masked_url}")
+        # Reconstruct the URL with the custom domain and phishing keyword
+        return f"{parsed_url.scheme}://{domain}-{encoded_keywords}@{parsed_url.netloc}{parsed_url.path}"
+
+    # Print the results
+    print(f"\n{Y}Original URL:{W}", web_url, "\n")
+    print(f"{G}[~] {R}Masked URL (using multiple shorteners):{W}")
+    for i, short_url in enumerate(short_urls):
+        masked_url = mask_url(custom_domain, phish, short_url)
+        print(f"{G}╰➤ {C}Shortener {W} {i + 1}: {masked_url}")
+
+except Exception as e:
+    print(f"{R}An error occurred: {W}{str(e)}")
