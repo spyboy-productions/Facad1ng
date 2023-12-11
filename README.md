@@ -132,7 +132,13 @@ else:
 
 Contributions and feature requests are welcome! If you encounter any issues or have ideas for improvement, feel free to open an issue or submit a pull request.
 
-#### 💬 If having issue [Chat here](https://discord.gg/ZChEmMwE8d)
+#### ToDo:
+
+- Fix trycloudflare error which is blocked by TinyURL 
+TinyURL not shorting trycloudflare
+Solution: don’t use pyshortner. shorten links manually one by one if TinyURL blocks try using different shortener
+
+#### 💬 If having an issue [Chat here](https://discord.gg/ZChEmMwE8d)
 [![Discord Server](https://discord.com/api/guilds/726495265330298973/embed.png)](https://discord.gg/ZChEmMwE8d)
 
 ### ⭔ Snapshots:
