@@ -1,4 +1,4 @@
-<img width="100%" align="centre" src="https://cdn.discordapp.com/attachments/1141162711464550430/1149804240680783902/faced1ng.png" />
+<img width="100%" align="centre" src="https://cdn.discordapp.com/attachments/1141162711464550430/1185861037375889489/Screenshot_2023-12-16_at_11.36.19_AM.png" />
 
 <p align="center">
     <a href="https://spyboy.in/twitter">
