@@ -126,3 +126,5 @@ Solution: don’t use pyshortner. shorten links manually one by one if TinyURL b
 ---
 
 <img width="100%" align="centre" src="https://cdn.discordapp.com/attachments/1141162711464550430/1149806863240663241/Screenshot_2023-09-09_at_1.59.55_AM.png" />
+
+<h4 align="center"> If you find this GitHub repo useful, please consider giving it a star! ⭐️ </h4> 
