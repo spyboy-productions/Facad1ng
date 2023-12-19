@@ -3,6 +3,10 @@
 
 Facad1ng is an open-source URL masking tool designed to help you Hide Phishing URLs and make them look legit using social engineering techniques.
 
+### Run Online Free On Google Colab
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/spyboy-productions/Facad1ng/blob/main/Facad1ng.ipynb)
+
 ### Example:
 ```
 Your phishing link: https://example.com/whatever
