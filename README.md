@@ -1,5 +1,5 @@
 
-<img width="100%" align="centre" src="https://cdn.discordapp.com/attachments/1141162711464550430/1185863021403328623/Screenshot_2023-12-17_at_2.05.33_PM.png" />
+<img width="100%" align="centre" src="https://github.com/spyboy-productions/Facad1ng/blob/main/image/afa.png" />
 
 Facad1ng is an open-source URL masking tool designed to help you Hide Phishing URLs and make them look legit using social engineering techniques.
 
@@ -129,6 +129,6 @@ Solution: don’t use pyshortner. shorten links manually one by one if TinyURL b
 ### ⭔ Snapshots:
 ---
 
-<img width="100%" align="centre" src="https://cdn.discordapp.com/attachments/1141162711464550430/1149806863240663241/Screenshot_2023-09-09_at_1.59.55_AM.png" />
+<img width="100%" align="centre" src="https://github.com/spyboy-productions/Facad1ng/blob/main/image/Screenshot_2023-09-09_at_1.59.55_AM.png" />
 
 <h4 align="center"> If you find this GitHub repo useful, please consider giving it a star! ⭐️ </h4> 
