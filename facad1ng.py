@@ -50,7 +50,7 @@ s = pyshorteners.Shortener()
 
 # Add the additional URL shortener to the list
 shorteners = [
-    #s.tinyurl,
+    s.tinyurl,
     s.dagd,
     s.clckru,
     s.osdb,
@@ -120,7 +120,17 @@ try:
     }
 
     # Shorten the original URL with multiple URL shorteners
-    short_urls = [shortener.short(web_url) for shortener in shorteners]
+    short_urls = []
+    for i, shortener in enumerate(shorteners):
+        try:
+            short_url = shortener.short(web_url)
+            short_urls.append(short_url)
+        except pyshorteners.exceptions.ShorteningErrorException as e:
+            print(f"{R}Error shortening URL with Shortener {i + 1}: {W}{str(e)}")
+            continue
+        except Exception as e:
+            print(f"{R}An unexpected error occurred with Shortener {i + 1}: {W}{str(e)}")
+            continue
 
     # Mask the URLs with custom domain and phishing keywords
     def mask_url(domain, keyword, url):
@@ -136,6 +146,7 @@ try:
     for i, short_url in enumerate(short_urls):
         masked_url = mask_url(custom_domain, phish, short_url)
         print(f"{G}╰➤ {C}Shortener {W} {i + 1}: {masked_url}")
+
 
 except Exception as e:
     print(f"{R}An error occurred: {W}{str(e)}")
