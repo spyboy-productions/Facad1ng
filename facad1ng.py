@@ -50,10 +50,10 @@ s = pyshorteners.Shortener()
 
 # Add the additional URL shortener to the list
 shorteners = [
-    s.tinyurl,
-    s.osdb,
+    #s.tinyurl,
     s.dagd,
     s.clckru,
+    s.osdb,
 ]
 
 # Input validation functions
