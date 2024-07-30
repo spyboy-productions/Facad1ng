@@ -1,4 +1,4 @@
-
+<h4 align="center"> If you find this GitHub repo useful, please consider giving it a star! ⭐️ </h4> 
 <img width="100%" align="centre" src="https://github.com/spyboy-productions/Facad1ng/blob/main/image/afa.png" />
 
 Facad1ng is an open-source URL masking tool designed to help you Hide Phishing URLs and make them look legit using social engineering techniques.
