@@ -8,6 +8,8 @@ Facad1ng is an open-source URL masking tool designed to help you Hide Phishing U
 
 > [!CAUTION] 
 > **Please use this responsibly and ethically.**
+> <h4> DISCLAIMER </h4> 
+> It is possible to use Facad1ng for nefarious purposes. It merely illustrates what adept attackers are capable of. Defenders have a responsibility to consider such attacks and protect their users from them. Using Facad1ng should only be done with the written permission of the targeted parties for legitimate penetration testing assignments.
 
 ### Run Online Free On Google Colab
 
